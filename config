@@ -179,9 +179,10 @@ for_window [class=".*"] border pixel 0
 
 
 # set background picture
-exec_always feh --bg-scale /home/hakim/Pictures/Wallpapers/cool-wallpaper-dawn-hd-wallpaper-66997.jpg
+exec_always feh --bg-scale /home/hakim/Pictures/Wallpapers/36307.jpg
 
 # startup command
+exec nm-applet
 exec nautilus
 exec firefox
 exec gnome-terminal
@@ -200,7 +201,7 @@ bindsym Print exec scrot ~/Pictures/%Y-%m-%d_$wx$h.png
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+b exec chromium
 bindsym $mod+Shift+n exec nautilus
-bindsym $mod+Shift+x exec i3lock --image=/home/hakim/Pictures/Wallpapers/no\ mans\ sky\ 4.png
+bindsym $mod+Shift+x exec i3lock --image=/home/hakim/Pictures/2019-10-21_1.png
 
 # config file of gaps (I HOPE!) for more info go to: https://benjames.io/2017/09/03/installing-i3-gaps-on-ubuntu-16-04/
 gaps inner 15

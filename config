@@ -37,7 +37,12 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+#bindsym $mod+d exec dmenu_run
+
+# start ulauncher (a program launcher)
+bindsym $mod+d exec ulauncher
+
+
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -93,45 +98,45 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $workspace1 "1: Terminal"
-set $workspace2 "2: Browser"
-set $worksapce3 "3: Filemanager"
-set $workspace4 "4: Music"
-set $workspace5 "5: Code"
-set $workspace6 "6: Telegram"
+set $workspace1 " "
+set $workspace2 " "
+set $workspace3 " "
+set $workspace4 " "
+set $workspace5 " "
+set $workspace6 " "
 
 # switch to workspace
-bindsym $mod+1 workspace "1: Terminal"
-bindsym $mod+2 workspace "2: Browser" 
-bindsym $mod+3 workspace "3: Filemanager" 
-bindsym $mod+4 workspace "4: Music"
-bindsym $mod+5 workspace "5: Code" 
-bindsym $mod+6 workspace "6: Telegram" 
-bindsym $mod+7 workspace "7: Video Player"
+bindsym $mod+1 workspace $workspace1 
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace "1: Terminal"
-bindsym $mod+Shift+2 move container to workspace "2: Browser" 
-bindsym $mod+Shift+3 move container to workspace "3: Filemanager"
-bindsym $mod+Shift+4 move container to workspace "4: Music"
-bindsym $mod+Shift+5 move container to workspace "5: Code"
-bindsym $mod+Shift+6 move container to workspace "6: Telegram"
-bindsym $mod+Shift+7 move container to workspace "7: Video Player"
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 
 # assingn app workspace
-# assign [class="Gnome-terminal"] "1: Terminal"
-assign [class="Rhythmbox"] "4: Music"
-assign [class="Firefox"] "2: Browser"
-assign [class="Nautilus"] "3: Filemanager"
-assign [class="Code"] "5: Code"
-assign [class="TelegramDesktop"] "6: Telegram"
+# assign [class="Gnome-terminal"] $workspace1
+assign [class="Firefox"] $workspace2
+assign [class="Nautilus"] $workspace3
+assign [class="Rhythmbox"] $workspace4
+assign [class="Code"] $workspace5
+assign [class="TelegramDesktop"] $workspace6
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -166,20 +171,42 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+mode "programming" {
+	bindsym c exec code
+	bindsym t exec gnome-terminal
+	bindsym q kill
+
+	# back to normal: Enter or Escape
+	bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+u mode "programming"
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
+
+
+#bar {
+#	status_command i3status
 #	font -misc-fixed-medium-r-normal--20-120-75-75-C-70-iso10646-1
-	font pango:DejaVu Sans Mono 15
-}
+#	font pango:DejaVu Sans Mono 15
+#}
 
 # make ready for i3 gap
 for_window [class=".*"] border pixel 0
 
 
 # set background picture
-exec_always feh --bg-scale /home/hakim/Pictures/Wallpapers/36307.jpg
+# exec_always feh --bg-scale /home/hakim/Pictures/Wallpapers/36307.jpg
+# exec_always feh --bg-scale /home/hakim/Downloads/wp1822735-rick-and-morty-wallpapers.png
+# exec_always feh --bg-scale /home/hakim/Pictures/hornsup.jpg
+# exec_always feh --bg--scale /home/hakim/Pictures/5K_wallpaper/isle-of-skye-7680x4320-scotland-europe-nature-travel-8k-14973.jpg
+# exec_always feh --bg-scale /home/hakim/Pictures/5K_wallpaper/isle-of-skye-7680x4320-scotland-europe-nature-travel-8k-14973.jpgi
+# exec_always feh --bg-scale /home/hakim/Pictures/bg-secondary.jpg
+exec_always feh --bg-scale /home/hakim/Pictures/5K_wallpaper/half-dome-7680x4320-mountain-yosemite-national-park-california-8k-16174.jpg
+
+
 
 # startup command
 exec nm-applet
@@ -212,11 +239,13 @@ bindsym XF86KbdBrightnessUp exec echo 2 > /sys/class/leds/asus::kbd_backlight/br
 bindsym $mod+Shift+f exec firefox
 bindsym $mod+Shift+b exec chromium
 bindsym $mod+Shift+n exec nautilus
-bindsym $mod+Shift+x exec i3lock --image=/home/hakim/Pictures/2019-10-21_1.png
+#bindsym $mod+Shift+x exec i3lock --image=/home/hakim/Pictures/2019-10-21_1.png
+#bindsym $mod+Shift+x exec my-i3lock-config.sh
+bindsym $mod+Shift+x exec i3lock-fancy -t ""
 
 # config file of gaps (I HOPE!) for more info go to: https://benjames.io/2017/09/03/installing-i3-gaps-on-ubuntu-16-04/
-gaps inner 15
-gaps outer 15
+gaps inner 25
+gaps outer 25
 
 bindsym $mod+Shift+p gaps outer current plus 5
 bindsym $mod+Shift+O gaps outer current minus 5
@@ -227,6 +256,19 @@ bindsym $mod+o gaps inner current minus 5
 # change keybord layout
 exec_always setxkbmap -layout "us,ir" \ -option "grp:alt_shift_toggle"
 
+# start polybar 
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
+exec_always --no-sturtup-id python /home/hakim/Software/battery\ alarm.py
 
-
+# fix tuochpad click by inserting this code to terminal.
+#sudo mkdir -p /etc/X11/xorg.conf.d && sudo tee <<'EOF' /etc/X11/xorg.conf.d/90-touchpad.conf 1> /dev/null
+#Section "InputClass"
+#        Identifier "touchpad"
+#        MatchIsTouchpad "on"
+#        Driver "libinput"
+#        Option "Tapping" "on"
+#        Option "TappingButtonMap" "lrm"
+#        Option "NaturalScrolling" "on"
+#        Option "ScrollMethod" "twofinger"
+#EndSection

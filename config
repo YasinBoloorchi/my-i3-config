@@ -272,3 +272,57 @@ exec_always --no-sturtup-id python /home/hakim/Software/battery\ alarm.py
 #        Option "NaturalScrolling" "on"
 #        Option "ScrollMethod" "twofinger"
 #EndSection
+
+
+
+mode "sara" 
+{
+
+        bindsym 1 exec feh --bg-scale /home/hakim/Pictures/sara/1.jpg
+	bindsym 2 exec feh --bg-scale /home/hakim/Pictures/sara/2.jpg
+	bindsym 3 exec feh --bg-center /home/hakim/Pictures/sara/3.jpg
+	bindsym 4 exec feh --bg-center /home/hakim/Pictures/sara/4.jpg
+	bindsym 5 exec feh --bg-center /home/hakim/Pictures/sara/5.jpg
+	bindsym 6 exec feh --bg-center /home/hakim/Pictures/sara/6.jpg
+	bindsym 7 exec feh --bg-scale /home/hakim/Pictures/sara/7.jpg
+	bindsym 8 exec feh --bg-scale /home/hakim/Pictures/sara/8.jpg
+
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+s mode "sara"
+
+
+mode "wall"
+{
+
+        bindsym 1 exec feh --bg-scale /home/hakim/Pictures/Wall/oldskool-photography-295077-unsplash.jpg
+
+        bindsym 2 exec feh --bg-scale /home/hakim/Pictures/Wall/nasa-53884-unsplash.jpg
+
+        bindsym 3 exec feh --bg-scale /home/hakim/Pictures/Wall/pedro-lastra-157071-unsplash.jpg
+
+        bindsym 4 exec feh --bg-scale /home/hakim/Pictures/Wall/valor-kopeny-31409-unsplash.jpg
+
+        bindsym 5 exec feh --bg-scale /home/hakim/Pictures/Wall/spacex-71876-unsplash.jpg
+        bindsym 6 exec feh --bg-scale /home/hakim/Pictures/Wall/kalen-emsley-98264-unsplash.jpg
+
+        bindsym 7 exec feh --bg-scale /home/hakim/Pictures/Wall/john-towner-154060-unsplash.jpg
+
+        bindsym 8 exec feh --bg-scale /home/hakim/Pictures/Wall/nasa-43563-unsplash.jpg
+
+        bindsym 9 exec feh --bg-scale /home/hakim/Pictures/Wall/4k-wallpaper-autumn-beautiful-1379640.jpg
+
+
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+w mode "wall"
+
+

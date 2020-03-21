@@ -31,7 +31,8 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec terminology
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -211,11 +212,11 @@ exec_always feh --bg-scale /home/hakim/Pictures/5K_wallpaper/half-dome-7680x4320
 # startup command
 exec nm-applet
 exec nautilus
-exec firefox
-exec gnome-terminal
-exec rhythmbox
-exec code
-exec telegram-desktop
+#exec firefox
+exec terminology
+#exec rhythmbox
+#exec code
+#exec telegram-desktop
 
 # binding key for fucntion key
 bindsym XF86AudioRaiseVolume exec amixer sset Master 1%+
@@ -230,10 +231,11 @@ bindsym Print exec scrot ~/Pictures/%Y-%m-%d_$wx$h.png
 # change brightness of keybord backlight
 # echo 3 | sudo tee /sys/class/leds/asus::kbd_backlight/brightness
 # echo 0 > /sys/class/leds/asus::kbd_backlight/brightness
-bindsym XF86KbdBrightnessDown exec echo 0 > /sys/class/leds/asus::kbd_backlight/brightnessi 
+#bindsym XF86KbdBrightnessDown exec echo 0 > /sys/class/leds/asus::kbd_backlight/brightnessi 
 
-bindsym XF86KbdBrightnessUp exec echo 2 > /sys/class/leds/asus::kbd_backlight/brightnessi 
-
+#bindsym XF86KbdBrightnessUp exec echo 2 > /sys/class/leds/asus::kbd_backlight/brightnessi 
+bindsym XF86KbdBrightnessUp exec python /home/hakim/.config/i3/scripts/bl_brightness_up.py
+bindsym XF86KbdBrightnessDown exec python /home/hakim/.config/i3/scripts/bl_brightness_down.py
 
 # my binded key for applications
 bindsym $mod+Shift+f exec firefox
@@ -241,7 +243,8 @@ bindsym $mod+Shift+b exec chromium
 bindsym $mod+Shift+n exec nautilus
 #bindsym $mod+Shift+x exec i3lock --image=/home/hakim/Pictures/2019-10-21_1.png
 #bindsym $mod+Shift+x exec my-i3lock-config.sh
-bindsym $mod+Shift+x exec i3lock-fancy -t ""
+bindsym $mod+Shift+x exec i3lock-fancy -t "" & /home/hakim/Documents/pythoon_programing/playsound/car_alarm.sh
+
 
 # config file of gaps (I HOPE!) for more info go to: https://benjames.io/2017/09/03/installing-i3-gaps-on-ubuntu-16-04/
 gaps inner 25
@@ -278,15 +281,17 @@ exec_always --no-sturtup-id python /home/hakim/Software/battery\ alarm.py
 mode "sara" 
 {
 
-        bindsym 1 exec feh --bg-scale /home/hakim/Pictures/sara/1.jpg
-	bindsym 2 exec feh --bg-scale /home/hakim/Pictures/sara/2.jpg
-	bindsym 3 exec feh --bg-center /home/hakim/Pictures/sara/3.jpg
-	bindsym 4 exec feh --bg-center /home/hakim/Pictures/sara/4.jpg
-	bindsym 5 exec feh --bg-center /home/hakim/Pictures/sara/5.jpg
+        bindsym 1 exec feh --bg-tile /home/hakim/Pictures/sara/1.jpg
+	bindsym 2 exec feh --bg-fill /home/hakim/Pictures/sara/2.jpg
+	bindsym 3 exec feh --bg-center /home/hakim/Pictures/sara/3.png
+	bindsym 4 exec feh --bg-fill /home/hakim/Pictures/sara/4.jpg
+	bindsym 5 exec feh --bg-fill /home/hakim/Pictures/sara/5.jpg
 	bindsym 6 exec feh --bg-center /home/hakim/Pictures/sara/6.jpg
-	bindsym 7 exec feh --bg-scale /home/hakim/Pictures/sara/7.jpg
-	bindsym 8 exec feh --bg-scale /home/hakim/Pictures/sara/8.jpg
+	bindsym 7 exec feh --bg-fill /home/hakim/Pictures/sara/7.jpg
+	bindsym 8 exec feh --bg-center /home/hakim/Pictures/sara/8.jpg
+	bindsym 9 exec feh --bg-center /home/hakim/Pictures/sara/9.jpg
 
+	
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -299,24 +304,15 @@ bindsym $mod+Shift+s mode "sara"
 mode "wall"
 {
 
-        bindsym 1 exec feh --bg-scale /home/hakim/Pictures/Wall/oldskool-photography-295077-unsplash.jpg
-
-        bindsym 2 exec feh --bg-scale /home/hakim/Pictures/Wall/nasa-53884-unsplash.jpg
-
-        bindsym 3 exec feh --bg-scale /home/hakim/Pictures/Wall/pedro-lastra-157071-unsplash.jpg
-
-        bindsym 4 exec feh --bg-scale /home/hakim/Pictures/Wall/valor-kopeny-31409-unsplash.jpg
-
-        bindsym 5 exec feh --bg-scale /home/hakim/Pictures/Wall/spacex-71876-unsplash.jpg
-        bindsym 6 exec feh --bg-scale /home/hakim/Pictures/Wall/kalen-emsley-98264-unsplash.jpg
-
-        bindsym 7 exec feh --bg-scale /home/hakim/Pictures/Wall/john-towner-154060-unsplash.jpg
-
-        bindsym 8 exec feh --bg-scale /home/hakim/Pictures/Wall/nasa-43563-unsplash.jpg
-
-        bindsym 9 exec feh --bg-scale /home/hakim/Pictures/Wall/4k-wallpaper-autumn-beautiful-1379640.jpg
-
-
+        bindsym 1 exec feh --bg-scale /home/hakim/Pictures/i3-wall/1.jpg
+        bindsym 2 exec feh --bg-scale /home/hakim/Pictures/i3-wall/2.jpg
+        bindsym 3 exec feh --bg-scale /home/hakim/Pictures/i3-wall/3.jpg
+        bindsym 4 exec feh --bg-scale /home/hakim/Pictures/i3-wall/4.jpg
+        bindsym 5 exec feh --bg-scale /home/hakim/Pictures/i3-wall/5.jpg
+        bindsym 6 exec feh --bg-scale /home/hakim/Pictures/i3-wall/6.jpg
+        bindsym 7 exec feh --bg-scale /home/hakim/Pictures/i3-wall/7.jpg
+        bindsym 8 exec feh --bg-scale /home/hakim/Pictures/i3-wall/8.jpg
+        bindsym 9 exec feh --bg-scale /home/hakim/Pictures/i3-wall/9.jpg
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -325,4 +321,34 @@ mode "wall"
 
 bindsym $mod+Shift+w mode "wall"
 
+
+
+mode "gnu-wall"
+{
+
+        bindsym 1 exec feh --bg-fill /home/hakim/Pictures/gnu-wall/1.png
+        bindsym 2 exec feh --bg-fill /home/hakim/Pictures/gnu-wall/2.png
+        bindsym 3 exec feh --bg-fill /home/hakim/Pictures/gnu-wall/3.png
+        bindsym 4 exec feh --bg-fill /home/hakim/Pictures/gnu-wall/4.jpg
+        bindsym 5 exec feh --bg-fill /home/hakim/Pictures/gnu-wall/5.png
+        bindsym 6 exec feh --bg-fill /home/hakim/Pictures/gnu-wall/6.jpg
+        bindsym 7 exec feh --bg-fill /home/hakim/Pictures/gnu-wall/7.png
+        bindsym 8 exec feh --bg-fill /home/hakim/Pictures/gnu-wall/8.png
+        bindsym 9 exec feh --bg-fill /home/hakim/Pictures/gnu-wall/9.jpg
+	bindsym a exec feh --bg-scale /home/hakim/Pictures/gnu-wall/a.jpg
+	bindsym b exec feh --bg-fill /home/hakim/Pictures/gnu-wall/b.jpg
+        bindsym c exec feh --bg-fill /home/hakim/Pictures/gnu-wall/c.png
+        bindsym d exec feh --bg-fill /home/hakim/Pictures/gnu-wall/d.jpg
+
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+g mode "gnu-wall"
+
+
+# script for duplicating screen in i3
+# xrandr --output HDMI-1 --mode 1920x1080 --same-as eDP-1
 

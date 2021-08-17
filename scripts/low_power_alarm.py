@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 
 from os import system
 import subprocess
@@ -41,7 +41,7 @@ while True:
     batteryPercent = int(re.findall('\s(\d{1,3})%', acpiRes)[0])
     
     # ceck battery percentage
-    if batteryPercent <= 15 and state == 'Discharging':
+    if batteryPercent <= 10 and state == 'Discharging':
         blink_backlight(led_device)
         sleep_time = 0.3
 

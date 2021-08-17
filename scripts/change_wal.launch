@@ -1,0 +1,5 @@
+#!/bin/bash
+
+killall -q change_wal.sh
+
+~/.config/i3/scripts/change_wal.sh

@@ -26,10 +26,10 @@ case $state in
     -1) xrandr --output eDP1 --auto --primary --output HDMI1 --off && sleep 3 && i3-msg restart;;
     -2) xrandr --output eDP1 --auto --primary && sleep 3 && i3-msg restart;;
     # -3) xrandr --output HDMI-1 --mode 1600x1024 --right-of eDP-1;;
-    -3) xrandr --output eDP1 --auto --primary --output HDMI1 --auto --right-of eDP1 && sleep 3 && i3-msg restart;;
-    -4) xrandr --output eDP1 --auto --primary --output HDMI1 --auto --left-of eDP1 && sleep 3 && i3-msg restart;;
-    -5) xrandr --output HDMI1 --auto --primary --output eDP1 --auto --right-of HDMI1 && sleep 3&& i3-msg restart;;
-    -6) xrandr --output HDMI1 --auto --primary --output eDP1 --off && sleep 3 && i3-msg restart;;
+    -3) xrandr --output eDP-1 --auto --primary --output HDMI-1 --auto --right-of eDP-1 && sleep 3 && i3-msg restart;;
+    -4) xrandr --output eDP-1 --auto --primary --output HDMI-1 --auto --left-of eDP-1 && sleep 3 && i3-msg restart;;
+    -5) xrandr --output HDMI-1 --auto --primary --output eDP-1 --auto --right-of HDMI-1 && sleep 3&& i3-msg restart;;
+    -6) xrandr --output HDMI-1 --auto --primary --output eDP-1 --off && sleep 3 && i3-msg restart;;
     
 esac
 

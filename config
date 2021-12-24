@@ -186,7 +186,7 @@ mode "monitor"{
 	bindsym 4 exec ~/.config/i3/scripts/monitor.sh -4
 	bindsym 5 exec ~/.config/i3/scripts/monitor.sh -5
 	bindsym 6 exec ~/.config/i3/scripts/monitor.sh -6
-
+	bindsym 7 exec ~/.config/i3/scripts/monitor.sh -7
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -274,6 +274,10 @@ exec pasystray
 
 # set app for workspace
 assign [class="TelegramDesktop"] $ws6
+assign [class="Chromium"] $ws2
+assign [class="Xfce4-terminal"] $ws1
+assign [class="persepolis"] $ws7
+
 
 # ----Dropdown/Scratched windows----# #
 # First I have tmux window used for background scripts
@@ -287,3 +291,16 @@ bindsym $mod+u exec --no-startup-id  xfce4-terminal -n "dropdown" -e tmux
 
 #bindsym $mod+u [instance="dropdown"] scratchpad show
  
+# Temprary command for changing the main monitor to LCD
+exec ~/.config/i3/scripts/monitor.sh -6
+exec brightnessctl set 100%
+
+	# Due to the problems with new HDMI connector I added this scripts to add new resolution for monitor
+	# ------------
+exec sleep 5 && ~/.config/i3/scripts/set_resolution.sh
+	# ------------
+
+
+# Startup softwares
+exec chromium
+exec telegram-desktop

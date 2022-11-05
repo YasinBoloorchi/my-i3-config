@@ -235,10 +235,11 @@ for_window [class="^.*"] border pixel 0
 new_window pixel 0
 
 # key bindings #######################
-bindsym $mod+x exec i3lock-fancy -t "" && sleep 10 && xset dpms force off
+bindsym $mod+x exec i3lock-fancy -t "" && sleep 3 && systemctl suspend
+#xset dpms force off
 
 # screenshot
-bindsym Print exec scrot ~/Pictures/Screenshots/%Y-%m-%d-%H%M%S.png
+bindsym Print exec scrot ~/Pictures/Screenshots/%Y-%m-%d-%H%M%S.png && xrandr --output eDP-1 --brightness 1.5 && sleep 0.1 && xrandr --output eDP-1 --brightness 1
 
 # add persian keyboard layout
 exec_always setxkbmap -layout "us,ir" \ -option "grp:alt_shift_toggle"
@@ -253,11 +254,16 @@ bindsym XF86ScreenSaver exec xset dpms force off
 #######################################
 
 # script for lowpower alarm
-exec_always --no-startup-id python ~/.config/i3/scripts/low_power_alarm.py
+exec --no-startup-id python ~/.config/i3/scripts/low_power_alarm.py
 
 
 # script for changing wallpaper
-exec_always --no-startup-id ~/.config/i3/scripts/wallpaper_slideshow/wall_changer/wall_run.sh 
+exec_always --no-startup-id ~/.config/i3/scripts/wallpaper_slideshow/wall_changer/wall_run.sh
+
+# Temprary change to see the Network problem
+# exec_always feh --bg-fill /home/hakim/Pictures/backgrounds/New_8/NYC-1.jpg
+# exec_always feh --bg-fill /home/hakim/Pictures/backgrounds/New_8/golden-gate-bridge-evening-coastline-san-francisco-beach-3840x2400-57.jpg
+# exec_always feh --bg-fill /home/hakim/Pictures/backgrounds/Wallpaper_4K3D.jpg
 
 # script for add webcam to my screen
 bindsym $mod+c	exec --no-startup-id  ~/.config/i3/scripts/camtoggle.sh
@@ -269,6 +275,8 @@ for_window [title="video0 - mpv"] sticky enable
 
 # sturtup applications
 exec pasystray
+#exec ~/.config/i3/scripts/xfce-loader.sh 
+exec xfce4-session & sleep 2 && pkill xfce4-session
 
 # is i3-radius working? (I hope so)
 
@@ -291,16 +299,13 @@ bindsym $mod+u exec --no-startup-id  xfce4-terminal -n "dropdown" -e tmux
 
 #bindsym $mod+u [instance="dropdown"] scratchpad show
  
-# Temprary command for changing the main monitor to LCD
-exec ~/.config/i3/scripts/monitor.sh -6
-exec brightnessctl set 100%
-
 	# Due to the problems with new HDMI connector I added this scripts to add new resolution for monitor
-	# ------------
-exec sleep 5 && ~/.config/i3/scripts/set_resolution.sh
-	# ------------
+	# Temprary command for changing the main monitor to LCD
+exec ~/.config/i3/scripts/set_resolution.sh
+# exec sleep 2 && ~/.config/i3/scripts/monitor.sh -6
+exec brightnessctl set 100%
 
 
 # Startup softwares
-exec chromium
-exec telegram-desktop
+#exec chromium
+#exec telegram-desktop
